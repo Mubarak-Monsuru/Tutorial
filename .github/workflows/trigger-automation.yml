@@ -1,0 +1,24 @@
+name: Schedule QA Automation Trigger
+
+on:
+  push:
+    branches:
+      - main  # Change this to the branch where you merge code
+
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Wait for 5 minutes
+        run: sleep 300  # Sleep for 300 seconds (5 minutes)
+
+      - name: Create a repository dispatch event
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          repository: Mubarak-Monsuru/Python
+          event-type: trigger-automation
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}  # Use custom token
