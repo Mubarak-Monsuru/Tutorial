@@ -13,8 +13,8 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v2
 
-      - name: Wait for 5 minutes
-        run: sleep 300  # Sleep for 300 seconds (5 minutes)
+      - name: Wait for 1 minutes
+        run: sleep 60  # Sleep for 300 seconds (5 minutes)
 
       - name: Create a repository dispatch event
         uses: peter-evans/repository-dispatch@v1
